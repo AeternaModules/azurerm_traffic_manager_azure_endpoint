@@ -24,11 +24,11 @@ EOT
     name                 = string
     profile_id           = string
     target_resource_id   = string
-    always_serve_enabled = optional(bool, false)
-    enabled              = optional(bool, true)
+    always_serve_enabled = optional(bool) # Default: false
+    enabled              = optional(bool) # Default: true
     geo_mappings         = optional(list(string))
     priority             = optional(number)
-    weight               = optional(number, 1)
+    weight               = optional(number) # Default: 1
     custom_header = optional(object({
       name  = string
       value = string
