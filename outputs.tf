@@ -1,3 +1,7 @@
+output "traffic_manager_azure_endpoints_id" {
+  description = "Map of id values across all traffic_manager_azure_endpoints, keyed the same as var.traffic_manager_azure_endpoints"
+  value       = { for k, v in azurerm_traffic_manager_azure_endpoint.traffic_manager_azure_endpoints : k => v.id }
+}
 output "traffic_manager_azure_endpoints_always_serve_enabled" {
   description = "Map of always_serve_enabled values across all traffic_manager_azure_endpoints, keyed the same as var.traffic_manager_azure_endpoints"
   value       = { for k, v in azurerm_traffic_manager_azure_endpoint.traffic_manager_azure_endpoints : k => v.always_serve_enabled }
