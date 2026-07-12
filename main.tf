@@ -11,7 +11,7 @@ resource "azurerm_traffic_manager_azure_endpoint" "traffic_manager_azure_endpoin
   weight               = each.value.weight
 
   dynamic "custom_header" {
-    for_each = each.value.custom_header != null ? [each.value.custom_header] : []
+    for_each = each.value.custom_header != null ? each.value.custom_header : []
     content {
       name  = custom_header.value.name
       value = custom_header.value.value
@@ -19,7 +19,7 @@ resource "azurerm_traffic_manager_azure_endpoint" "traffic_manager_azure_endpoin
   }
 
   dynamic "subnet" {
-    for_each = each.value.subnet != null ? [each.value.subnet] : []
+    for_each = each.value.subnet != null ? each.value.subnet : []
     content {
       first = subnet.value.first
       last  = subnet.value.last
